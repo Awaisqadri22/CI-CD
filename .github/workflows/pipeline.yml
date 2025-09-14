@@ -23,5 +23,8 @@ jobs:
     - name: Install dependencies
       run: npm ci
       
+    - name: Debug - Check if ESLint exists
+      run: ls -la node_modules/.bin/eslint
+      
     - name: Run ESLint
-      run: ./node_modules/.bin/eslint './**/*.{js,jsx}'
+      run: npx eslint './**/*.{js,jsx}'
