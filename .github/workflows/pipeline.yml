@@ -26,5 +26,10 @@ jobs:
     - name: Debug - Check if ESLint exists
       run: ls -la node_modules/.bin/eslint
       
+    - name: Debug - Check PATH
+      run: echo $PATH
+      
     - name: Run ESLint
-      run: npx eslint './**/*.{js,jsx}'
+      run: |
+        export PATH=$PATH:./node_modules/.bin
+        eslint './**/*.{js,jsx}'
